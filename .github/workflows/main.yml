@@ -1,7 +1,7 @@
 on: push
-name: 🚀 Deploy website on push
+name: 🚀 Deploy PHP Server on push
 jobs:
-  web-deploy:
+  php-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -19,5 +19,5 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/*
-          **/MySQL-DB/*
+          /MySQL-DB/*
           Readme.md
