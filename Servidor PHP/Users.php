@@ -48,6 +48,9 @@ class Users
             return -1;
         }
     }
+	public static function getManagerByUsername($username){
+		
+	}
 }
 
 ?>
