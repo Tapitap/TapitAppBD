@@ -48,8 +48,22 @@ class Users
             return -1;
         }
     }
-	public static function getManagerByUsername($username){
-		
+	public static function getManagerByUsername($username)
+	{
+		$consulta = "SELECT u.username, u.enable, a.authority, m.id, m.name, m.tipo 
+						FROM users u INNER JOIN manager m INNER JOIN authorities a 
+							ON u.username = m.username AND u.username = a.username 
+								WHERE u.username = ?";
+
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($username));
+            $row = $comando->fetch(PDO::FETCH_ASSOC);
+            return $row;
+
+        } catch (PDOException $e) {
+            return -1;
+        }
 	}
 }
 
