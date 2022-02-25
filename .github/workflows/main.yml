@@ -14,3 +14,9 @@ jobs:
         server: tapitapp.orgfree.com
         username: tapitapp.orgfree.com
         password: U92KUssTF.eHxU_
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/*
+          **/MySQL-DB/*
+          Readme.md
