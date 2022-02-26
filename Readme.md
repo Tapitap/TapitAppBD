@@ -4,12 +4,12 @@ _Este repositorio contiene los archivos PHP y su estructura de carpetas para la 
 
 ## Despliegue 📦
 
-_Se ha utilizado un host FTP para labergar los ficheros PHP y la base de datos MySQL_
+_Se ha utilizado un host FTP para albergar los ficheros PHP y la base de datos MySQL_
 
 ## Construido con 🛠️
 
 * [Notepad++](https://notepad-plus-plus.org/downloads/) - El editor de archivos para crear y modificar PHP
-* [Postman](https://www.postman.com/downloads/) - Herramineta para crear peticion http
+* [Postman](https://www.postman.com/downloads/) - Herramineta para crear peticiones Http
 
 ## Autores ✒️
 
