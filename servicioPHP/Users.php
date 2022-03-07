@@ -65,6 +65,20 @@ class Users
             return -1;
         }
 	}
+	
+	public static function getAllMesasByIdManager($id_manager)
+	{
+		$consulta = "SELECT m.id, m.username, m.numero, m.id_manager, a.authority, u.enable 
+						FROM mesa m INNER JOIN users u INNER JOIN authorities a ON m.username = u.username AND m.username = a.username 
+							WHERE m.id_manager = ?";
+		try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id_manager));
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
