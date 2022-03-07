@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if ($retorno) {
 
             $mesas["estado"] = "1";
-            $mesas["ManagerUser"] = $retorno;
+            $mesas["MesasUser"] = $retorno;
             // Enviar objeto json del usuario mesa
             print json_encode($mesas);
         } else {
