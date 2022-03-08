@@ -10,7 +10,7 @@ class Productos
     
     public static function getByTipo($id_manager,$tipo)
     {
-        $consulta="SELECT DISTINCT(p.nombre) FROM producto p WHERE p.id_manager=? AND p.tipo=? AND p.oferta=0";
+        $consulta="SELECT * FROM producto p WHERE p.id_manager=? AND p.tipo=? AND p.oferta=0";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_manager,$tipo));
