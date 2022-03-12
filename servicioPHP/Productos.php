@@ -19,6 +19,18 @@ class Productos
             return -1;
         }
     }
+	
+	public static function getImgById($id)
+    {
+        $consulta="SELECT i.imagen FROM imgProd i WHERE i.id=?";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id_manager,$tipo));
+            return $comando->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+    }
 }
 
 ?>
