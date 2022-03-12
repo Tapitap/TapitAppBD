@@ -8,7 +8,7 @@ require '../Productos.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    if (isset($_GET['id']) {
+    if (isset($_GET['id'])) {
 
         // Obtener parÃ¡metro usernmesa
         $id = $_GET['id'];
