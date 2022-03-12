@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id']) {
 
         // Obtener parÃ¡metro usernmesa
-        $id = $_GET['id_manager'];
+        $id = $_GET['id'];
 
         // Tratar retorno
         $retorno = Productos::getImgById($id);
