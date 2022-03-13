@@ -19,10 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if ($retorno) {
 
-            $Productos["estado"] = "1";
-            $Productos["Icono"] = $retorno;
-            // Enviar objeto json del usuario mesa
-            print json_encode($Productos);
+            header("Content-type: image/png"); 
+            echo $retorno['icono'];
         } else {
             // Enviar respuesta de error general
             print json_encode(
