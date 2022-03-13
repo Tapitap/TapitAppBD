@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $retorno = Productos::getIcoById($id);
 
 
-        if ($retorno) {
+        if (!empty($retorno)) {
 
             header("Content-type: image/png"); 
             echo $retorno['icono'];
