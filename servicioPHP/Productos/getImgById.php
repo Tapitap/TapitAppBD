@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $retorno = Productos::getImgById($id);
 
 
-        if ($retorno) {
+        if ($retorno->num_rows > 0) {
 			
 			header("Content-type: image/png"); 
             echo $retorno['imagen'];
