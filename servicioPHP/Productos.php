@@ -25,7 +25,7 @@ class Productos
         $consulta="SELECT i.icono FROM imgProd i WHERE i.id=?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id_manager,$tipo));
+            $comando->execute(array($id));
             return $comando->fetch(PDO::FETCH_ASSOC);
         }catch (PDOException $e) {
             return -1;
@@ -37,7 +37,7 @@ class Productos
         $consulta="SELECT i.imagen FROM imgProd i WHERE i.id=?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id_manager,$tipo));
+            $comando->execute(array($id));
             return $comando->fetch(PDO::FETCH_ASSOC);
         }catch (PDOException $e) {
             return -1;
