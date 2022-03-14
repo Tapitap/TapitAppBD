@@ -34,7 +34,7 @@ class Productos
 	
 	public static function getImgById($id)
     {
-        $consulta="SELECT i.imagen FROM imgProd i WHERE i.id=?";
+        $consulta="SELECT i.Imagen FROM imgProd i WHERE i.id=?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id));
