@@ -21,8 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 )
             );
 		}
-		
-		$imagen = file_get_contents("../../img/".$id.".png");
+		$imagen=false;
+		$directory="../../img/";
+		$dirint = dir($directory);
+		while (($archivo = $dirint->read()) !== false)
+		{
+			if($archivo == ($id.".png")){
+				$imagen = $file_get_contents("../../img/".$archivo);
+			}
+		}
+		//$imagen = file_get_contents("../../img/".$id.".png");
         if ($imagen) {
 			
 			header("Content-type: image/png"); 
