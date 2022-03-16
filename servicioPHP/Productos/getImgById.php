@@ -10,23 +10,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     if (isset($_GET['id'])) {
 
-        // Obtener parÃ¡metro usernmesa
+        
         $id = $_GET['id'];
 
-        // Tratar retorno
-        //$retorno = Productos::getImgById($id);
-		$imagen = file_get_contents("../../img/3.png");
-		/*$directory="../../img";
-		$dirint = dir($directory);
-		while (($archivo = $dirint->read()) !== false)
-		{
-			if($archivo == ($id.".png")){
-				$imagen = $archivo;
-			}
-		}*/
-
-
-        if (!empty($id)) {
+        if(empty($id)){
+			print json_encode(
+                array(
+                    'estado' => '-1',
+                    'mensaje' => 'Se necesita un id'
+                )
+            );
+		}
+		
+		$imagen = file_get_contents("../../img/".$id.".png");
+        if ($imagen) {
 			
 			header("Content-type: image/png"); 
             echo $imagen;
