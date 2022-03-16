@@ -15,12 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         // Tratar retorno
         //$retorno = Productos::getImgById($id);
+		$imagen = fopen("../../img/3.png", "r");
 
 
-        if (!empty($retorno) and $retorno['icono']!=null) {
+        if (!empty($imagen)) {
 			
 			header("Content-type: image/png"); 
-            echo $retorno['imagen'];
+            echo $imagen;
         } else {
             // Enviar respuesta de error general
             print json_encode(
