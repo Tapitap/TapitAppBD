@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		}
 		//$imagen = file_get_contents("../../img/".$id.".png");
         if ($exite) {
-			$imagen = $file_get_contents($directory . $id . ".png");
+			$imagen = $file_get_contents("../../img/".$id.".png");
 			header("Content-type: image/png"); 
             echo $imagen;
         } else {
