@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$imagen = fopen("../../img/3.png", "r");
 
 
-        if (!empty($imagen)) {
+        if (!empty($id)) {
 			
 			header("Content-type: image/png"); 
             echo $imagen;
