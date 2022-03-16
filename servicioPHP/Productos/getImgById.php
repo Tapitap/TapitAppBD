@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $id = $_GET['id'];
 
         // Tratar retorno
-        $retorno = Productos::getImgById($id);
+        //$retorno = Productos::getImgById($id);
 
 
         if (!empty($retorno) and $retorno['icono']!=null) {
