@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$dirint = dir($directory);
 		while (($archivo = $dirint->read()) !== false)
 		{
-			$imagen = $archivo;
+			if($archivo == ($id.".png")){
+				$imagen = $archivo;
+			}
 		}
 
 
