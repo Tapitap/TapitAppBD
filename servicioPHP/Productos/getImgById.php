@@ -15,7 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         // Tratar retorno
         //$retorno = Productos::getImgById($id);
-		$imagen = fopen("../../img/3.png", "r");
+		//$imagen = fopen("../../img/3.png", "r");
+		$directory="../../img";
+		$dirint = dir($directory);
+		while (($archivo = $dirint->read()) !== false)
+		{
+			$imagen = $archivo;
+		}
 
 
         if (!empty($id)) {
