@@ -15,20 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         // Tratar retorno
         //$retorno = Productos::getImgById($id);
-		//$imagen = fopen("../../img/3.png", "r");
-		$directory="../../img";
+		$imagen = fopen("../../img/3.png", "rb");
+		/*$directory="../../img";
 		$dirint = dir($directory);
 		while (($archivo = $dirint->read()) !== false)
 		{
 			if($archivo == ($id.".png")){
 				$imagen = $archivo;
 			}
-		}
+		}*/
 
 
         if (!empty($id)) {
 			
-			//header("Content-type: image/png"); 
+			header("Content-type: image/png"); 
             echo $imagen;
         } else {
             // Enviar respuesta de error general
