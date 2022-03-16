@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if (!empty($id)) {
 			
-			header("Content-type: image/png"); 
+			//header("Content-type: image/png"); 
             echo $imagen;
         } else {
             // Enviar respuesta de error general
