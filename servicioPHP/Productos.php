@@ -34,14 +34,22 @@ class Productos
 	
 	public static function getImgById($id)
     {
-        $consulta="SELECT i.imagen FROM imgProd i WHERE i.id=?";
-        try {
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id));
-            return $comando->fetch(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
-            return -1;
-        }
+        $exite=false;
+		$directory="../../Imagenes/img/";
+		$dirint = dir($directory);
+		while (($archivo = $dirint->read()) !== false)
+		{
+			if($archivo == ($id.".png")){
+				$exite = true;
+			}
+		}
+		if ($exite) {
+			$imagen = file_get_contents($directory.$id.".png");
+			echo $imagen;
+		} else {
+			$imagen = file_get_contents($directory."0.png");
+			echo $imagen;
+		}
     }
 }
 

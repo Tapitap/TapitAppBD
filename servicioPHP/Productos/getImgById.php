@@ -11,27 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         if(!empty($id)){
-			$exite=false;
-			$directory="../../img/";
-			$dirint = dir($directory);
-			while (($archivo = $dirint->read()) !== false)
-			{
-				if($archivo == ($id.".png")){
-					$exite = true;
-				}
-			}
-			if ($exite) {
-				$imagen = file_get_contents($directory.$id.".png");
-				header("Content-type: image/png"); 
-				echo $imagen;
-			} else {
-				print json_encode(
-					array(
-						'estado' => '-1',
-						'mensaje' => 'No se obtuvo la imagen'
-					)
-				);
-			}
+			
+			$retorno = Productos::getImgById($id);
+			
+			header("Content-type: image/png"); 
+			echo $retorno;
 		}else{
 			print json_encode(
                 array(
