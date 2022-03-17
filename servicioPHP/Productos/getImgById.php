@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if(!empty($id)){
 			header("Content-type: image/png"); 
 			$dir = Productos::getImgById($id);
-			$imagen = file_get_contents("../".$dir);
+			$imagen = $dir;
 			
 			echo $imagen;
 		}else{
