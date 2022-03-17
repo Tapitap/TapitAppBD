@@ -8,7 +8,7 @@ class Productos
     {
     }
 	
-	private $directory = "../../Imagenes/";
+	private static $directory = "../../Imagenes/";
     
     public static function getByTipo($id_manager,$tipo)
     {
