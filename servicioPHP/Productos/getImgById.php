@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         if(!empty($id)){
-			
+			header("Content-type: image/png"); 
 			//$dir = Productos::getImgById($id);
 			$imagen = Productos::getImgById($id);
-			header("Content-type: image/png"); 
+			
 			echo $imagen;
 		}else{
 			print json_encode(
