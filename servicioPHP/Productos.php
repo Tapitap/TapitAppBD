@@ -35,7 +35,7 @@ class Productos
 	public static function getImgById($id)
     {
         $exite=false;
-		$directory="../Imagenes/img/";
+		$directory="../Imagenes/img";
 		$dirint = dir($directory);
 		while (($archivo = $dirint->read()) !== false)
 		{
@@ -44,10 +44,10 @@ class Productos
 			}
 		}
 		if ($exite) {
-			$dir = "../".$directory.$id.".png";
+			$dir = "../".$directory."/".$id.".png";
 			echo $dir;
 		} else {
-			$dir = "../".$directory."0.png";
+			$dir = "../".$directory."/0.png";
 			echo $dir;
 		}
     }
