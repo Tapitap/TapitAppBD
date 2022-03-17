@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $id = $_GET['id'];
         if(!empty($id)){
 			
-			$retorno = Productos::getImgById($id);
-			
+			$dir = Productos::getImgById($id);
+			$imagen = file_get_contents($dir);
 			header("Content-type: image/png"); 
-			echo $retorno;
+			echo $imagen;
 		}else{
 			print json_encode(
                 array(

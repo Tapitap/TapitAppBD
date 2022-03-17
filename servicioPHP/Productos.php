@@ -44,11 +44,11 @@ class Productos
 			}
 		}
 		if ($exite) {
-			$imagen = file_get_contents($directory.$id.".png");
-			echo $imagen;
+			$dir = $directory.$id.".png";
+			echo $dir;
 		} else {
-			$imagen = file_get_contents($directory."0.png");
-			echo $imagen;
+			$dir = $directory."0.png";
+			echo $dir;
 		}
     }
 }
