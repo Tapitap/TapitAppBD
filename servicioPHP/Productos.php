@@ -44,10 +44,10 @@ class Productos
 			}
 		}
 		if ($exite) {
-			$dir = file_get_contents($directory.$id.".png");
+			$dir = $directory.$id.".png";
 			echo $dir;
 		} else {
-			$dir = file_get_contents($directory."0.png");
+			$dir = $directory."0.png";
 			echo $dir;
 		}
     }
