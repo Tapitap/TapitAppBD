@@ -19,6 +19,6 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/*
-          /MySQL-DB/*
+          **/MySQL-DB/**
           Readme.md
-          **/img/**
+          **/Imagenes/**

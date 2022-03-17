@@ -21,37 +21,61 @@ INSERT INTO `authorities` (`username`, `authority`) VALUES ('laposada_2', 'mesa'
 
 --********* PRODUCTOS *********
 
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('LAGRIMAS DE POLLO MIELMOSTAZA', '3.50', 'ESTO ES UNA DESCRIPCION', 'comida', 'tapa');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('LAGRIMAS DE POLLO MIELMOSTAZA', '9.20', 'ESTO ES UNA DESCRIPCION', 'comida', 'racion');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('PISTO CON HUEVO', '3.40', 'ESTO ES UNA DESCRIPCION', 'comida', 'tapa');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('PISTO CON HUEVO', '6.00', 'ESTO ES UNA DESCRIPCION', 'comida', 'media');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('SOLOMILLO ROQUEFORT', '4.10', 'ESTO ES UNA DESCRIPCION', 'comida', 'media');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('SOLOMILLO ROQUEFORT', '11.60', 'ESTO ES UNA DESCRIPCION', 'comida', 'racion');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('SOLOMILLO WHISKY', '4.20', 'ESTO ES UNA DESCRIPCION', 'comida', 'media');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('SOLOMILLO WHISKY', '11.70', 'ESTO ES UNA DESCRIPCION', 'comida', 'racion');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('ENSALADILLA RUSA', '2.50', 'ESTO ES UNA DESCRIPCION', 'comida', 'tapa');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('ENSALADILLA RUSA', '4.30', 'ESTO ES UNA DESCRIPCION', 'comida', 'media');
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('TARTA DE QUESO', '4.85', 'ESTO ES UNA DESCRIPCION', 'postre', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('HELADO DE CHOCOLATE Y HOJALDRE', '5.10', 'ESTO ES UNA DESCRIPCION', 'postre', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('AQUABONA 50CL', '1.60', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('COCACOLA 33CL', '2.10', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('COCACOLA ZERO AZUCAR 33CL', '2.10', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('CERVEZA CRUZCAMPO CAÑA', '1.20', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('CERVEZA CRUZCAMPO JARRA', '2.50', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('TERCIO 1906 CLASICA', '2.50', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('TERCIO ESTRELLA GALICIA', '2.50', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('BOTELLIN ESTRELLA GALICIA 0.0 TOSTADA', '2.50', 'ESTO ES UNA DESCRIPCION', 'bebida', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('RON BARCELO', '7.00', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('CACIQUE', '6.50', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('LARIOS', '6.50', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('BEEFEATER', '7.00', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('RED LABEL', '7.00', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`) VALUES ('DYC', '6.50', 'ESTO ES UNA DESCRIPCION', 'combinado', null);
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'LAGRIMAS DE POLLO MIELMOSTAZA', 'ESTO ES UNA DESCRIPCION', 'comida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('1', 'tapa', '3.50');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('1', 'racion', '9.20');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'PISTO CON HUEVO', 'ESTO ES UNA DESCRIPCION', 'comida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('2', 'tapa', '3.40');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('2', 'media', '6.00');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'SOLOMILLO ROQUEFORT', 'ESTO ES UNA DESCRIPCION', 'comida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('3', 'tapa', '3.70');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('3', 'media', '4.10');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('3', 'racion', '11.60');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'SOLOMILLO WHISKY', 'ESTO ES UNA DESCRIPCION', 'comida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('4', 'tapa', '3.70');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('4', 'media', '4.20');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('4', 'racion', '11.70');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'ENSALADILLA RUSA', 'ESTO ES UNA DESCRIPCION', 'comida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('5', 'tapa', '2.50');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('5', 'media', '4.30');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'TARTA DE QUESO', 'ESTO ES UNA DESCRIPCION', 'postre', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('6', null, '4.85');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'HELADO DE CHOCOLATE Y HOJALDRE', 'ESTO ES UNA DESCRIPCION', 'postre', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('7', null, '5.10');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'AQUABONA 50CL', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('8', null, '1.60');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'COCACOLA 33CL', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('9', null, '2.10');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'COCACOLA ZERO AZUCAR 33CL', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('10', null, '2.10');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'CERVEZA CRUZCAMPO CAÑA', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('11', null, '1.20');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'CERVEZA CRUZCAMPO JARRA', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('12', null, '2.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'TERCIO 1906 CLASICA', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('13', null, '2.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'TERCIO ESTRELLA GALICIA', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('14', null, '2.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'BOTELLIN ESTRELLA GALICIA 0.0 TOSTADA', 'ESTO ES UNA DESCRIPCION', 'bebida', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('15', null, '1.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'RON BARCELO', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('16', null, '7.00');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'CACIQUE', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('17', null, '6.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'LARIOS', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('18', null, '6.50');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'BEEFEATER', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('19', null, '7.00');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'RED LABEL', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('20', null, '7.00');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', 'DYC', 'ESTO ES UNA DESCRIPCION', 'combinado', '0');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('21', null, '6.50');
 
 --********* OFERTAS *********
 
-INSERT INTO `producto` (`nombre`, `precio`, `descripcion`, `tipo`, `tipoplato`, `oferta`) VALUES ('5 BOTELLINES CRUZCAMPO 25CL', '6.00', 'ESTO ES UNA DESCRIPCION', 'bebida', null, '1');
-INSERT INTO `oferta` (`id_producto`, `enable`) VALUES ('27', '1');
+INSERT INTO `producto` (`id_manager`, `nombre`, `descripcion`, `tipo`, `oferta`) VALUES ('1', '5 BOTELLINES CRUZCAMPO 25CL', 'ESTO ES UNA DESCRIPCION', 'bebida', '1');
+INSERT INTO `precio` (`id_producto`, `tipo`, `precio`) VALUES ('22', null, '6.00');
+INSERT INTO `oferta` (`id_producto`, `enable`) VALUES ('22', '1');
 
 --********* COMANDA *********
 
@@ -60,14 +84,14 @@ INSERT INTO `comanda` (`id_cuenta`, `id_mesa`) VALUES ('1', '1');
 
 --********* LINEAS *********
 
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('1','9','1');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('1','8','1');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('1','4','1');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('1','16','4');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('2','11','2');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('2','21','2');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('2','25','1');
-INSERT INTO `linea` (`id_comanda`, `id_producto`, `cantidad`) VALUES ('2','18','1');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('1','5','11','1');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('1','4','10','1');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('1','2','4','1');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('1','11','18','4');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('2','6','13','2');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('2','16','23','2');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('2','20','27','1');
+INSERT INTO `linea` (`id_comanda`, `id_producto`, `id_precio`, `cantidad`) VALUES ('2','13','20','1');
 
 --********* CUENTAS *********
 
