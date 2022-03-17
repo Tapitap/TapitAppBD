@@ -24,7 +24,7 @@ class Productos
     {
         $exite = false;
 		$directory = "../../Imagenes/ico/";
-		$dirint = dir($directory."ico/");
+		$dirint = dir($directory);
 		while (($archivo = $dirint->read()) !== false)
 		{
 			if($archivo == ($id.".png")){
