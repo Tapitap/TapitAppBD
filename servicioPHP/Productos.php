@@ -7,8 +7,6 @@ class Productos
     function __construct()
     {
     }
-	
-	private static $directory = "../../Imagenes/";
     
     public static function getByTipo($id_manager,$tipo)
     {
@@ -25,6 +23,7 @@ class Productos
 	public static function getIcoById($id)
     {
         $exite = false;
+		$directory = "../../Imagenes/ico/";
 		$dirint = dir($directory."ico/");
 		while (($archivo = $dirint->read()) !== false)
 		{
@@ -44,7 +43,8 @@ class Productos
 	public static function getImgById($id)
     {
         $exite = false;
-		$dirint = dir($directory."img/");
+		$directory = "../../Imagenes/img/";
+		$dirint = dir($directory);
 		while (($archivo = $dirint->read()) !== false)
 		{
 			if($archivo == ($id.".png")){
