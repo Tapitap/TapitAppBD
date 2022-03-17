@@ -7,6 +7,8 @@ class Productos
     function __construct()
     {
     }
+	
+	private $directory = "../../Imagenes/";
     
     public static function getByTipo($id_manager,$tipo)
     {
@@ -22,21 +24,27 @@ class Productos
 	
 	public static function getIcoById($id)
     {
-        $consulta="SELECT i.icono FROM imgProd i WHERE i.id=?";
-        try {
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id));
-            return $comando->fetch(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
-            return -1;
-        }
+        $exite = false;
+		$dirint = dir($directory."ico/");
+		while (($archivo = $dirint->read()) !== false)
+		{
+			if($archivo == ($id.".png")){
+				$exite = true;
+			}
+		}
+		if ($exite) {
+			$dir = $directory.$id.".png";
+			return file_get_contents($dir);
+		} else {
+			$dir = $directory."0.png";
+			return file_get_contents($dir);
+		}
     }
 	
 	public static function getImgById($id)
     {
-        $exite=false;
-		$directory="../../Imagenes/img/";
-		$dirint = dir($directory);
+        $exite = false;
+		$dirint = dir($directory."img/");
 		while (($archivo = $dirint->read()) !== false)
 		{
 			if($archivo == ($id.".png")){

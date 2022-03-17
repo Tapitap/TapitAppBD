@@ -9,34 +9,27 @@ require '../Productos.php';
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     if (isset($_GET['id'])) {
-
-        // Obtener parÃ¡metro usernmesa
-        $id = $_GET['id'];
-
-        // Tratar retorno
-        $retorno = Productos::getIcoById($id);
-
-
-        if (!empty($retorno) and $retorno['icono']!=null) {
-
-            header("Content-type: image/png"); 
-            echo $retorno['icono'];
-        } else {
-            // Enviar respuesta de error general
-            print json_encode(
+		$id = $_GET['id'];
+        if(!empty($id)){
+			
+			header("Content-type: image/png"); 
+			$imagen = Productos::getIcoById($id);
+			
+			echo $imagen;
+		}else{
+			print json_encode(
                 array(
                     'estado' => '-1',
-                    'mensaje' => 'No se obtuvo la imagen'
+                    'mensaje' => 'El parametro id esta vacio'
                 )
             );
-        }
-
+		}
     } else {
         // Enviar respuesta de error
         print json_encode(
             array(
                 'estado' => '-1',
-                'mensaje' => 'Se necesita un identificador'
+                'mensaje' => 'Se necesita un paramtero id'
             )
         );
     }
