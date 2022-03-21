@@ -17,7 +17,11 @@ class Productos
             $productos=$comando->fetchAll(PDO::FETCH_ASSOC);
 			$resultado = null;
 			foreach($productos as $prod){
-				$precios = getPreciosById($prod['id']);
+				//$precios = getPreciosById($prod['id']);
+				$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
+				$comando = Database::getInstance()->getDb()->prepare($consulta);
+				$comando->execute($prod['id']);
+				$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
 				$prod['precios'] = $precios;
 				$resultado = array_merge($resultado,$prod);
 			}
