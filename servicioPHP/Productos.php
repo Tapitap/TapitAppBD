@@ -37,18 +37,13 @@ class Productos
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id));
-            return $comando->fetch(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
-            return -1;
-        }
-	}
-	
-	function getPreciosById($id_producto){
-		$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
-        try {
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id_producto));
-            return $comando->fetchAll(PDO::FETCH_ASSOC);
+            $producto = $comando->fetch(PDO::FETCH_ASSOC);
+			$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+			$comando->execute(array($prod['id']));
+			$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
+			$producto['precios'] = $precios;
+			return $producto;
         }catch (PDOException $e) {
             return -1;
         }
