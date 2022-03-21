@@ -15,12 +15,12 @@ class Productos
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_manager,$tipo));
             $productos=$comando->fetchAll(PDO::FETCH_ASSOC);
-			$resultado = null;
+			$resultado = array();
 			foreach($productos as $prod){
 				//$precios = getPreciosById($prod['id']);
 				$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
 				$comando = Database::getInstance()->getDb()->prepare($consulta);
-				$comando->execute($prod['id']);
+				$comando->execute(array($prod['id']));
 				$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
 				$prod['precios'] = $precios;
 				$resultado = array_merge($resultado,$prod);
