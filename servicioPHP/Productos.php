@@ -21,7 +21,7 @@ class Productos
 				$prod['precios'] = $precios;
 				$resultado = array_merge($resultado,$prod);
 			}
-			return $resultado
+			return $resultado;
         }catch (PDOException $e) {
             return -1;
         }
