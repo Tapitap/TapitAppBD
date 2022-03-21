@@ -19,6 +19,7 @@ class Productos
 				$precios = getPreciosById($prod['id']);
 				$resultado = array_merge($resultado, array_merge($prod,'precios'=>$precios));
 			}
+			return $resultado
         }catch (PDOException $e) {
             return -1;
         }
