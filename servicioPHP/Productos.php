@@ -20,6 +20,17 @@ class Productos
         }
     }
 	
+	public static function getById($id){
+		$consulta="SELECT * FROM producto p WHERE p.id=?";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id));
+            return $comando->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getPreciosById($id_producto){
 		$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
         try {
