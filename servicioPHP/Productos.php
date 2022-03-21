@@ -18,7 +18,8 @@ class Productos
 			$resultado = null;
 			foreach($productos as $prod){
 				$precios = getPreciosById($prod['id']);
-				$resultado = array_merge($resultado, array_merge($prod,'precios'=>$precios));
+				$prod['precios'] = $precios;
+				$resultado = array_merge($resultado,$prod);
 			}
 			return $resultado
         }catch (PDOException $e) {
