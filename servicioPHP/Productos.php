@@ -23,7 +23,7 @@ class Productos
 				$comando->execute(array($prod['id']));
 				$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
 				$prod['precios'] = $precios;
-				$resultado[i] = $prod;
+				$resultado[$i] = $prod;
 				$i++;
 			}
 			return $resultado;
