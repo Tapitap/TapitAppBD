@@ -14,7 +14,11 @@ class Productos
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_manager,$tipo));
-            return $comando->fetchAll(PDO::FETCH_ASSOC);
+            $productos=$comando->fetchAll(PDO::FETCH_ASSOC);
+			foreach($productos as $prod){
+				$precios = getPreciosById($prod['id']);
+				$resultado = array_merge($resultado, array_merge($prod,'precios'=>$precios));
+			}
         }catch (PDOException $e) {
             return -1;
         }
