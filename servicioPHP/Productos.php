@@ -24,7 +24,7 @@ class Productos
 				$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
 				$prod['precios'] = $precios;
 				$resultado[i] = $prod;
-				i++;
+				$i++;
 			}
 			return $resultado;
         }catch (PDOException $e) {
