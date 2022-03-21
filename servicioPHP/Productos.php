@@ -40,7 +40,7 @@ class Productos
             $producto = $comando->fetch(PDO::FETCH_ASSOC);
 			$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
-			$comando->execute(array($prod['id']));
+			$comando->execute(array($producto['id']));
 			$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
 			$producto['precios'] = $precios;
 			return $producto;
