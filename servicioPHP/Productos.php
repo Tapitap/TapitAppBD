@@ -38,7 +38,7 @@ class Productos
         }
 	}
 	
-	private function getPreciosById($id_producto){
+	function getPreciosById($id_producto){
 		$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
