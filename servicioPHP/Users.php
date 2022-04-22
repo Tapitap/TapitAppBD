@@ -68,7 +68,7 @@ class Users
 	
 	public static function getAllMesasByIdManager($id_manager)
 	{
-		$consulta = "SELECT m.id, m.username, m.numero, m.id_manager, a.authority, u.enable 
+		$consulta = "SELECT m.id, m.username, m.numero, m.id_manager, a.authority, u.password, u.enable 
 						FROM mesa m INNER JOIN users u INNER JOIN authorities a ON m.username = u.username AND m.username = a.username 
 							WHERE m.id_manager = ?";
 		try {
