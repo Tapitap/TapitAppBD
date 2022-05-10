@@ -8,6 +8,30 @@ class Productos
     {
     }
     
+	public static function getAll($id_manager)
+	{
+		$consulta="SELECT * FROM producto p WHERE p.id_manager=?";
+		try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id_manager));
+            $productos=$comando->fetchAll(PDO::FETCH_ASSOC);
+			$i = 0;
+			foreach($productos as $prod){
+				//$precios = getPreciosById($prod['id']);
+				$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
+				$comando = Database::getInstance()->getDb()->prepare($consulta);
+				$comando->execute(array($prod['id']));
+				$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
+				$prod['precios'] = $precios;
+				$resultado[$i] = $prod;
+				$i++;
+			}
+			return $resultado;
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
     public static function getByTipo($id_manager,$tipo)
     {
         $consulta="SELECT * FROM producto p WHERE p.id_manager=? AND p.tipo=? AND p.oferta=0";
