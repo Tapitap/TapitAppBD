@@ -12,9 +12,10 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: tapitapp.orgfree.com
-        username: tapitapp.orgfree.com
-        password: U92KUssTF.eHxU_
+        server: ftp.tapitapp.es
+        username: tapitapp
+        password: Coimbra-2018
+        port: 21
         exclude: |
           **/.git*
           **/.git*/**
