@@ -13,7 +13,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ftp.tapitapp.es
-        username: tapitapp
+        username: tapitapp_php
         password: Coimbra-2018
         port: 21
         exclude: |
