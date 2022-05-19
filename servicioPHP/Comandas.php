@@ -35,11 +35,12 @@ class Comandas
 	public static function insertComanda($id_mesa){
 		$consulta="INSERT INTO comanda(id_mesa) VALUES(?)";
         try {
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($consulta);
             $comando->execute(array(
 				$id_mesa
 			));
-            $id = $comando->lastInsertId();
+            $id = $conn->lastInsertId();
 			return $id;
         }catch (PDOException $e) {
             return -1;
