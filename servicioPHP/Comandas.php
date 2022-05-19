@@ -39,7 +39,7 @@ class Comandas
             $comando->execute(array(
 				$id_mesa
 			));
-            $id = 123456; //$comando->fetch(PDO::lastInsertId);
+            $id = $comando->fetch(PDO::lastInsertId);
 			return $id;
         }catch (PDOException $e) {
             return -1;

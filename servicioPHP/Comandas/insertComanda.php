@@ -1,6 +1,6 @@
 <?php
 
-require '../Users.php';
+require '../Comandas.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
