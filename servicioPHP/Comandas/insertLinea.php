@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $retorno = Comandas::insertLinea($id_comanda,$id_producto,$cuantia,$cantidad);
         
-        if ($retorno==1) {
+        if ($retorno) {
             
             //print json_encode(array($retorno));
             //$json = json_encode($retorno);
