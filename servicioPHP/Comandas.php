@@ -52,7 +52,7 @@ class Comandas
         try {
 			
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
-            return = $comando->execute(array($id_comanda,$id_producto,$cuantia,$cantidad));
+            return $comando->execute(array($id_comanda,$id_producto,$cuantia,$cantidad));
 			
         }catch (PDOException $e) {
             return -1;
