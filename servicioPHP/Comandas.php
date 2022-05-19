@@ -37,7 +37,7 @@ class Comandas
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_mesa));
-            $id = $comando->fetch(PDO::lastInsertId);
+            $id = 123456//$comando->fetch(PDO::lastInsertId);
 			$comanda['id'] = $id;
 			return $comanda;
         }catch (PDOException $e) {
