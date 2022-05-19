@@ -50,13 +50,9 @@ class Comandas
 	public static function insertLinea($id_comanda,$id_producto,$cuantia,$cantidad){
 		$consulta="INSERT INTO linea (id_comanda, id_producto, cuantia, cantidad) VALUES (?,?,?,?)";
         try {
+			
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
-            return = $comando->execute(array(
-				$id_comanda,
-				$id_producto,
-				$cuantia,
-				$cantidad
-			));
+            return = $comando->execute(array($id_comanda,$id_producto,$cuantia,$cantidad));
 			
         }catch (PDOException $e) {
             return -1;
