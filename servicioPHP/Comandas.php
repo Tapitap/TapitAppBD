@@ -32,18 +32,14 @@ class Comandas
         }
 	}
 	
-	public static function getById($id){
-		$consulta="SELECT * FROM producto p WHERE p.id=?";
+	public static function insertComanda($id_mesa){
+		$consulta="INSERT INTO comanda(id_mesa) VALUES(?) ";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id));
-            $producto = $comando->fetch(PDO::FETCH_ASSOC);
-			$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";
-			$comando = Database::getInstance()->getDb()->prepare($consulta);
-			$comando->execute(array($producto['id']));
-			$precios = $comando->fetchAll(PDO::FETCH_ASSOC);
-			$producto['precios'] = $precios;
-			return $producto;
+            $comando->execute(array($id_mesa));
+            $id = $comando->fetch(PDO::lastInsertId);
+			$comanda['id'] = $id;
+			return $comanda;
         }catch (PDOException $e) {
             return -1;
         }
