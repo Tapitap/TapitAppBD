@@ -10,7 +10,7 @@ class Comandas
     
 	public static function getAll($id_manager)
 	{
-		$consulta="SELECT c.id,c.fecha,c.servida,c.id_cuenta,c.id_mesa FROM comanda c LEFT JOIN mesa m ON c.id_mesa = m.id WHERE m.id_manager=?";
+		$consulta="SELECT c.id,c.fecha,c.servida,c.id_cuenta,c.id_mesa FROM comanda c WHERE c.id_manager=?";
 		try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_manager));
