@@ -58,6 +58,18 @@ class Comandas
             return -1;
         }
 	}
+	
+	public static function servirComanda($id){
+		$consulta="UPDATE comanda SET servida = 1 WHERE id=?";
+        try {
+			
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($id));
+			
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
