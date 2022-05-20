@@ -40,10 +40,10 @@ class Comandas
 			$comando = $conn->prepare($consultaId);
 			$comando->execute(array($id_mesa));
 			$id_manager = $comando->fetch(PDO::FETCH_ASSOC);
-			$comando = $conn->prepare($consulta);
-            $comando->execute(array(
+			$comando2 = $conn->prepare($consulta);
+            $comando2->execute(array(
 				$id_mesa,
-				$id_manager
+				$id_manager["id_manager"]
 			));
             $id = $conn->lastInsertId();
 			return $id;
