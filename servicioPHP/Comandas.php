@@ -38,8 +38,8 @@ class Comandas
         try {
             $conn = Database::getInstance()->getDb();
 			$comando = $conn->prepare($consultaId);
-			$comando->execute(array($id_mesa))
-			$id_manager = $comando->fetch(PDO::FETCH_ASSOC)
+			$comando->execute(array($id_mesa));
+			$id_manager = $comando->fetch(PDO::FETCH_ASSOC);
 			$comando = $conn->prepare($consulta);
             $comando->execute(array(
 				$id_mesa,
