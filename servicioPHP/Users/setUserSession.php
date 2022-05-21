@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username']) and isset($_POST['value'])) {
 
         // Obtener parÃ¡metro usernmesa
-        $username = $_GET['username'];
-		$value = $_GET['value'];
+        $username = $_POST['username'];
+		$value = $_POST['value'];
 
         // Tratar retorno
         $retorno = Users::setUserSession($username,$value);
