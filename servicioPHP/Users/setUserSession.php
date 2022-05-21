@@ -8,7 +8,7 @@ require '../Users.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (isset($_GET['username']) and isset($_GET['value'])) {
+    if (isset($_POST['username']) and isset($_POST['value'])) {
 
         // Obtener parÃ¡metro usernmesa
         $username = $_GET['username'];
