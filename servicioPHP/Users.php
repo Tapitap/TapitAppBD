@@ -23,6 +23,29 @@ class Users
             return -1;
         }
     }
+	
+	public static function getUserSession($username){
+		$consulta="SELECT u.log FROM users u WHERE u.username=?";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($username));
+            return $comando->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function setUserSession($username,$value){
+		$consulta="UPDATE users u SET u.log=? WHERE u.username=?";
+        try {
+			
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($value,$username));
+            
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 
     /**
      * Obtiene los campos de una mesa con un identificador
@@ -75,29 +98,6 @@ class Users
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($id_manager));
             return $comando->fetchAll(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
-            return -1;
-        }
-	}
-	
-	public static function getMesaSession($id){
-		$consulta="SELECT m.log FROM mesa m WHERE m.id=?";
-        try {
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
-            $comando->execute(array($id));
-            return $comando->fetch(PDO::FETCH_ASSOC);
-        }catch (PDOException $e) {
-            return -1;
-        }
-	}
-	
-	public static function setMesaSession($id,$value){
-		$consulta="UPDATE mesa SET m.log=? WHERE m.id=?";
-        try {
-			
-            $comando = Database::getInstance()->getDb()->prepare($consulta);
-            return $comando->execute(array($id));
-            
         }catch (PDOException $e) {
             return -1;
         }

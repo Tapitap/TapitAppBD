@@ -6,21 +6,20 @@
 
 require '../Users.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (isset($_GET['id'])) {
+    if (isset($_GET['username']) and isset($_GET['value'])) {
 
         // Obtener parÃ¡metro usernmesa
-        $id = $_GET['id'];
+        $username = $_GET['username'];
+		$value = $_GET['value'];
 
         // Tratar retorno
-        $retorno = Users::getMesaSession($id);
-
+        $retorno = Users::setUserSession($username,$value);
 
         if ($retorno) {
 
             $json["estado"] = "1";
-            $json["log"] = $retorno["log"];
             // Enviar objeto json del usuario mesa
             print json_encode($json);
         } else {
@@ -28,17 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             print json_encode(
                 array(
                     'estado' => '-1',
-                    'mensaje' => 'No se obtuvo la sesion'
+                    'mensaje' => 'No se actualizo la sesion'
                 )
             );
         }
-
     } else {
         // Enviar respuesta de error
         print json_encode(
             array(
                 'estado' => '-1',
-                'mensaje' => 'Se necesita un identificador'
+                'mensaje' => 'Se necesita valores'
             )
         );
     }
