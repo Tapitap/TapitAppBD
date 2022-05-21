@@ -79,6 +79,29 @@ class Users
             return -1;
         }
 	}
+	
+	public static function getMesaSession($id){
+		$consulta="SELECT m.log FROM mesa m WHERE m.id=?";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id));
+            return $comando->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function setMesaSession($id,$value){
+		$consulta="UPDATE mesa SET m.log=? WHERE m.id=?";
+        try {
+			
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($id));
+            
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
