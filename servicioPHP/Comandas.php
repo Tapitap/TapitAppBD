@@ -75,6 +75,29 @@ class Comandas
             return -1;
         }
 	}
+	
+	public static function getNuevasComandas($id_manager,$fecha){
+		$consulta="SELECT * FROM comanda WHERE id_manager=? AND (fecha > STR_TO_DATE(?, '%d/%m/%Y %T') AND fecha <= current_timestamp())";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id_manager,$fecha));
+            $comandas=$comando->fetchAll(PDO::FETCH_ASSOC);
+			$i = 0;
+			foreach($comandas as $comanda){
+				//$lineas = getlineasById($comanda['id']);
+				$consulta="SELECT * FROM linea WHERE id_comanda=?";
+				$comando = Database::getInstance()->getDb()->prepare($consulta);
+				$comando->execute(array($comanda['id']));
+				$lineas = $comando->fetchAll(PDO::FETCH_ASSOC);
+				$comanda['lineas'] = $lineas;
+				$resultado[$i] = $comanda;
+				$i++;
+			}
+			return $resultado;
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
