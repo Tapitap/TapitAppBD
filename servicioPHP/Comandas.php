@@ -76,6 +76,18 @@ class Comandas
         }
 	}
 	
+	public static function pagarComanda($id,$id_cuenta){
+		$consulta="UPDATE comanda SET id_cuenta=?, id_mesa=NULL WHERE id=?";
+        try {
+			
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($id_cuenta,$id));
+			
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getNuevasComandas($id_manager,$fecha){
 		$consulta="SELECT * FROM comanda WHERE id_manager=? AND (fecha > STR_TO_DATE(?, '%d/%m/%Y %T') AND fecha <= current_timestamp())";
         try {
