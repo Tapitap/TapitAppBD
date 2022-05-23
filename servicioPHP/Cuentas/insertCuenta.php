@@ -5,7 +5,7 @@ require '../Cuentas.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 	$isset = isset($_POST['total']) and isset($_POST['formapago']) and isset($_POST['id_mesa']);
-    if (isset($isset) {
+    if ($isset) {
         
         $total = $_POST['total'];
 		$formapago = $_POST['formapago'];
