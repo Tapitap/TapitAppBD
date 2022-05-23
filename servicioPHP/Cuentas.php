@@ -19,6 +19,23 @@ class Cuentas
             return -1;
         }
 	}
+	
+	public static function insertCuenta($total, $formapago, $id_mesa){
+		$consulta="INSERT INTO cuenta(total,formapago,id_mesa) VALUES(?,?,?)";
+        try {
+            $conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($consulta);
+            $comando->execute(array(
+				$total,
+				$formapago,
+				$id_mesa
+			));
+            $id = $conn->lastInsertId();
+			return $id;
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
