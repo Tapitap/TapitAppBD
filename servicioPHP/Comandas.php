@@ -64,6 +64,17 @@ class Comandas
         }
 	}
 	
+	public static function getLineasServidas($id_mesa){
+		$consulta = "SELECT l.id, p.nombre, l.cuantia, l.cantidad FROM linea l INNER JOIN producto p ON p.id = l.id_producto LEFT JOIN comanda c ON c.id = l.id_comanda WHERE c.id_mesa=? AND c.servida = 1";
+		try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($id_mesa));
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function servirComanda($id){
 		$consulta="UPDATE comanda SET servida = 1 WHERE id=?";
         try {
