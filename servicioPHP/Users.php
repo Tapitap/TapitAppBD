@@ -47,6 +47,18 @@ class Users
         }
 	}
 	
+	public static function setManagerMesapass($id_manager,$mesapass){
+		$consulta="UPDATE manager m SET m.mesapass=? WHERE m.id=?";
+        try {
+			
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($mesapass,$id_manager));
+            
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function setUserMesaPassword($id_manager,$password){
 		$consulta="UPDATE users u INNER JOIN mesa m ON m.username = u.username SET u.password=? WHERE m.id_manager=?";
         try {
