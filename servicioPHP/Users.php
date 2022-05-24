@@ -85,7 +85,7 @@ class Users
     }
 	public static function getManagerByUsername($username)
 	{
-		$consulta = "SELECT u.username, u.enable, a.authority, m.id, m.name, m.tipo 
+		$consulta = "SELECT u.username, u.enable, a.authority, m.id, m.name, m.tipo, m.mesapass
 						FROM users u INNER JOIN manager m INNER JOIN authorities a 
 							ON u.username = m.username AND u.username = a.username 
 								WHERE u.username = ?";
