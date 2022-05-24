@@ -8,7 +8,7 @@ require '../Users.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
-	$isset = isset($_POST['id_manager']) and isset($_POST['password'])
+	$isset = isset($_POST['id_manager']) and isset($_POST['password']);
     if ($isset) {
 
         // Obtener parÃ¡metro usernmesa
