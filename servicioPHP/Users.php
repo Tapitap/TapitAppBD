@@ -14,7 +14,7 @@ class Users
     
     public static function login($username,$password)
     {
-        $consulta="SELECT a.authority FROM users u INNER JOIN authorities a ON u.username = a.username WHERE u.username=? AND u.password=?";
+        $consulta="SELECT a.authority, u.enable FROM users u INNER JOIN authorities a ON u.username = a.username WHERE u.username=? AND u.password=?";
         try {
             $comando = Database::getInstance()->getDb()->prepare($consulta);
             $comando->execute(array($username,$password));

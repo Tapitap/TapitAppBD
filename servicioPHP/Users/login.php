@@ -13,15 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($retorno) {
             
-            //print json_encode(array($retorno));
-            //$json = json_encode($retorno);
-            //$json = json_decode($json, true);
-            
-            $json["estado"] = "1";
-            $json["authority"] = $retorno["authority"];
+            if($retorno["enable"]==1){
+				
+				$json["estado"] = "1";
+				$json["authority"] = $retorno["authority"];
+				
+			}else{
+				
+				$json["estado"] = "2";
+				$json["mensaje"] = 'Usuario inhabilitado';
+				
+			}
             
 			print json_encode($json);
-			//print $json;
             
         }else{
             print json_encode(
