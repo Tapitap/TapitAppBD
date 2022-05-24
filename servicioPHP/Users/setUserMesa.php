@@ -7,15 +7,17 @@
 require '../Users.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    if (isset($_POST['username']) and isset($_POST['value'])) {
+	
+	$isset = isset($_POST['username']) and isset($_POST['log']) and isset($_POST['enable'])
+    if () {
 
         // Obtener parÃ¡metro usernmesa
         $username = $_POST['username'];
-		$value = $_POST['value'];
+		$log = $_POST['log'];
+		$enable = $_POST['enable'];
 
         // Tratar retorno
-        $retorno = Users::setUserSession($username,$value);
+        $retorno = Users::setUserMesa($username,$enable,$log);
 
         if ($retorno) {
 
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             print json_encode(
                 array(
                     'estado' => '-1',
-                    'mensaje' => 'No se actualizo la sesion'
+                    'mensaje' => 'No se actualizo la mesa'
                 )
             );
         }

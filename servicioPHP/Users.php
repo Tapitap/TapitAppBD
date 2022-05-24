@@ -35,12 +35,24 @@ class Users
         }
 	}
 	
-	public static function setUserSession($username,$value){
-		$consulta="UPDATE users u SET u.log=? WHERE u.username=?";
+	public static function setUserMesa($username,$enable,$log){
+		$consulta="UPDATE users u SET u.enable=?, u.log=? WHERE u.username=?";
         try {
 			
             $comando = Database::getInstance()->getDb()->prepare($consulta);
-            return $comando->execute(array($value,$username));
+            return $comando->execute(array($enable,$log,$username));
+            
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function setUserMesaPassword($id_manager,$password){
+		$consulta="UPDATE users u INNER JOIN mesa m ON m.username = u.username SET u.password=? WHERE m.id_manager=?";
+        try {
+			
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($password,$id_manager));
             
         }catch (PDOException $e) {
             return -1;
