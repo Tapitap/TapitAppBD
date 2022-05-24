@@ -114,6 +114,50 @@ class Users
             return -1;
         }
 	}
+	
+	public static function insertMesa($username,$id_manager,$numero){
+		$sqlMesa = "INSERT INTO mesa(id_manager,numero,username) VALUES(?,?,?)";
+		try {
+			$conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($sqlMesa);
+			$comando->execute(array(
+				$id_manager,
+				$numero,
+				$username
+			));
+			$id = $conn->lastInsertId();
+			return $id;
+		}catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function insertUser($username,$password){
+		$sqlUser = "INSERT INTO users(username,password) VALUES(?,?)";
+		try {
+			$conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($sqlUser);
+            return $comando->execute(array(
+				$username,
+				$password
+			));
+		}catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function insertAuthority($username){
+		$sqlAthority = "INSERT INTO authorities(username,authority) VALUES(?,'mesa')";
+		try {
+			$conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($sqlAthority);
+            return $comando->execute(array(
+				$username
+			));
+		}catch (PDOException $e) {
+            return -1;
+        }
+	}
 }
 
 ?>
