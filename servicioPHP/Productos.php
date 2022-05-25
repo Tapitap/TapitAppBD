@@ -77,7 +77,7 @@ class Productos
 		$consulta="INSERT INTO producto (id_manager,nombre,descripcion,tipo,oferta) VALUES(?,?,?,?,?)";
         try {
             $conn = Database::getInstance()->getDb();
-			$comando = $conn->prepare($consultaId);
+			$comando = $conn->prepare($consulta);
             $comando->execute(array(
 				$id_manager,
 				$nombre,
@@ -96,7 +96,7 @@ class Productos
 		$consulta="INSERT INTO precio (id_producto,tipo,cuantia) VALUES(?,?,?)";
         try {
             $conn = Database::getInstance()->getDb();
-			$comando = $conn->prepare($consultaId);
+			$comando = $conn->prepare($consulta);
             $comando->execute(array(
 				$id_producto,
 				$tipo,
