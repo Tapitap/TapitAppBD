@@ -73,6 +73,42 @@ class Productos
         }
 	}
 	
+	public static function insertProducto($id_manager,$nombre,$descripcion,$tipo,$oferta){
+		$consulta="INSERT INTO producto (id_manager,nombre,descripcion,tipo,oferta) VALUES(?,?,?,?,?)";
+        try {
+            $conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($consultaId);
+            $comando->execute(array(
+				$id_manager,
+				$nombre,
+				$descripcion,
+				$tipo,
+				$oferta
+			));
+            $id = $conn->lastInsertId();
+			return $id;
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function insertPrecio($id_producto,$tipo,$cuantia){
+		$consulta="INSERT INTO precio (id_producto,tipo,cuantia) VALUES(?,?,?)";
+        try {
+            $conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($consultaId);
+            $comando->execute(array(
+				$id_producto,
+				$tipo,
+				$cuantia
+			));
+            $id = $conn->lastInsertId();
+			return $id;
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getIcoById($id)
     {
         $exite = false;
