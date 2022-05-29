@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($retorno) {
             
             $json["estado"] = "1";
-            $json["id"] = $retorno;
+            $json["cuenta"] = $retorno;
             
 			print json_encode($json);
 			//print $json;

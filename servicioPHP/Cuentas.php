@@ -21,17 +21,24 @@ class Cuentas
 	}
 	
 	public static function insertCuenta($total, $formapago, $id_mesa){
-		$consulta="INSERT INTO cuenta(total,formapago,id_mesa) VALUES(?,?,?)";
+		$sqlinsert="INSERT INTO cuenta(total,formapago,id_mesa) VALUES(?,?,?)";
+		$sqlget="SELECT fecha FROM cuenta WHERE id=?";
         try {
             $conn = Database::getInstance()->getDb();
-			$comando = $conn->prepare($consulta);
-            $comando->execute(array(
+			$comando1 = $conn->prepare($sqlinsert);
+            $comando1->execute(array(
 				$total,
 				$formapago,
 				$id_mesa
 			));
             $id = $conn->lastInsertId();
-			return $id;
+			$comando2 =$conn->prepare($sqlget);
+			$fecha = $comando2->execute(array($id));
+			$cuenta = array(
+                    'id' => $id,
+                    'fecha' => $fecha['fecha']
+                )
+			return $cuenta;
         }catch (PDOException $e) {
             return -1;
         }
