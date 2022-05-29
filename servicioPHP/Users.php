@@ -113,6 +113,19 @@ class Users
         }
 	}
 	
+	public static function getAllManager(){
+		$consulta = "SELECT u.username, u.enable, a.authority, m.id, m.name, m.tipo, m.mesapass
+						FROM users u INNER JOIN manager m INNER JOIN authorities a 
+							ON u.username = m.username AND u.username = a.username";
+		try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute();
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getAllMesasByIdManager($id_manager)
 	{
 		$consulta = "SELECT m.id, m.username, m.numero, m.id_manager, a.authority, u.password, u.enable, u.log
