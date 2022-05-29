@@ -123,12 +123,11 @@ class Productos
         }
 	}
 	
-	public static function unpdatePrecio($id,$tipo,$cuantia){
-		$consulta="UPDATE precio SET tipo=?, cuantia=? WHERE id=?";
+	public static function unpdatePrecio($id,$cuantia){
+		$consulta="UPDATE precio SET cuantia=? WHERE id=?";
         try {
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
             return $comando->execute(array(
-				$tipo,
 				$cuantia,
 				$id
 			));

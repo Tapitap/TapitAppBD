@@ -4,14 +4,13 @@ require '../Productos.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-	$isset = isset($_POST['id']) and isset($_POST['tipo']) and isset($_POST['cuantia']);
+	$isset = isset($_POST['id']) and isset($_POST['cuantia']);
     if ($isset) {
         
         $id = $_POST['id'];
-		$tipo = $_POST['tipo'];
 		$cuantia = $_POST['cuantia'];
         
-        $retorno = Productos::unpdatePrecio($id,$tipo,$cuantia);
+        $retorno = Productos::unpdatePrecio($id,$cuantia);
         
         if ($retorno) {
             
