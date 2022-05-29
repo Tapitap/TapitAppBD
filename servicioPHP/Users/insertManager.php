@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if($retorno['id']==null){
 			print json_encode(array('mensaje'=>'no id'));
 		}else{
-			print json_encode('mensaje'=>$retorno['id']);
+			print json_encode(array('mensaje'=>$retorno['id']));
 		}
 		/*
 		$retorno = Users::insertUser($username,$password);
