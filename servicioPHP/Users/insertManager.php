@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$retorno = Users::getManagerByUsername(username);
 		
 		if($retorno['id']==null){
-			print json_encode('mensaje'=>'no id');
+			print json_encode(array('mensaje'=>'no id'));
 		}else{
 			print json_encode('mensaje'=>$retorno['id']);
 		}
