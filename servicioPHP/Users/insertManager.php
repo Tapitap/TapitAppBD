@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if($retorno){
 				
 				$retorno = Users::insertAuthority($username,"manager");
-				/*
+				
 				if($retorno){
 					
 					$retorno = Users::insertManager($username,$name,$tipo,$mesapass);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					print json_encode(
 						array('estado' => '-1', 'mensaje' => 'Authority no insertado')
 					);
-				}*/
+				}
 			}else{
 				print json_encode(
 					array('estado' => '-1', 'mensaje' => 'User no insertado')
