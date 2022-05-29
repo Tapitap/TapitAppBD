@@ -110,7 +110,7 @@ class Productos
 	}
 	
 	public static function updateProducto($id,$descripcion,$enable){
-		$consulta="UPDATE producto SET descripcion=?, enable=? WHERE id=?)";
+		$consulta="UPDATE producto SET descripcion=?, enable=? WHERE id=?";
         try {
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
             return $comando->execute(array(
@@ -124,7 +124,7 @@ class Productos
 	}
 	
 	public static function unpdatePrecio($id,$tipo,$cuantia){
-		$consulta="UPDATE precio SET tipo=?, cuantia=? WHERE id=?)";
+		$consulta="UPDATE precio SET tipo=?, cuantia=? WHERE id=?";
         try {
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
             return $comando->execute(array(
@@ -138,7 +138,7 @@ class Productos
 	}
 	
 	public static function deletePrecio($id){
-		$consulta="DELETE FROM precio WHERE id=?)";
+		$consulta="DELETE FROM precio WHERE id=?";
         try {
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
             return $comando->execute(array(
