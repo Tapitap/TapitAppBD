@@ -153,7 +153,7 @@ class Users
 			$id = $conn->lastInsertId();
 			return $id;
 		}catch (PDOException $e) {
-            return -1;
+            return '-1';
         }
 	}
 	
@@ -167,7 +167,7 @@ class Users
 				$password
 			));
 		}catch (PDOException $e) {
-            return -1;
+            return '-1';
         }
 	}
 	
@@ -180,7 +180,7 @@ class Users
 				$username
 			));
 		}catch (PDOException $e) {
-            return -1;
+            return '-1';
         }
 	}
 }
