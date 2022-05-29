@@ -33,7 +33,8 @@ class Cuentas
 			));
             $id = $conn->lastInsertId();
 			$comando2 =$conn->prepare($sqlget);
-			$fecha = $comando2->execute(array($id));
+			$comando2->execute(array($id));
+			$fecha = $comando->fetch(PDO::FETCH_ASSOC);
 			$cuenta['id'] = $id;
 			$cuenta['fecha'] = $fecha['fecha'];
 			//$cuenta = array(
