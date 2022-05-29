@@ -109,6 +109,46 @@ class Productos
         }
 	}
 	
+	public static function unpdateProducto($id,$descripcion,$enable){
+		$consulta="UPDATE producto SET descripcion=?, enable=? WHERE id=?)";
+        try {
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array(
+				$descripcion,
+				$enable,
+				$id
+			));
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function unpdatePrecio($id,$tipo,$cuantia){
+		$consulta="UPDATE precio SET tipo=?, cuantia=? WHERE id=?)";
+        try {
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array(
+				$tipo,
+				$cuantia,
+				$id
+			));
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
+	public static function deletePrecio($id){
+		$consulta="DELETE FROM precio WHERE id=?)";
+        try {
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array(
+				$id
+			));
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getIcoById($id)
     {
         $exite = false;
