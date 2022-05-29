@@ -16,6 +16,7 @@ class Productos
             $comando->execute(array($id_manager));
             $productos=$comando->fetchAll(PDO::FETCH_ASSOC);
 			$i = 0;
+			$resultado;
 			foreach($productos as $prod){
 				//$precios = getPreciosById($prod['id']);
 				$consulta="SELECT p.id,p.tipo,p.cuantia FROM precio p WHERE p.id_producto=?";

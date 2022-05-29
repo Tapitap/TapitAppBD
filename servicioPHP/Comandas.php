@@ -106,6 +106,7 @@ class Comandas
             $comando->execute(array($id_manager,$fecha));
             $comandas=$comando->fetchAll(PDO::FETCH_ASSOC);
 			$i = 0;
+			$resultado;
 			foreach($comandas as $comanda){
 				//$lineas = getlineasById($comanda['id']);
 				$consulta="SELECT * FROM linea WHERE id_comanda=?";
