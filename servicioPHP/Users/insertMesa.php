@@ -14,15 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
 		$retorno = Users::insertUser($username,$password);
 		
-        if($retorno){
+        if($retorno!=-1){
 			
 			$retorno = Users::insertAuthority($username);
 			
-			if($retorno){
+			if($retorno!=-1){
 				
 				$retorno = Users::insertMesa($username,$id_manager,$numero);
 				
-				if ($retorno) {
+				if ($retorno!=-1) {
             
 					$json["estado"] = "1";
 					$json["id"] = $retorno;
