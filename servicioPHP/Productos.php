@@ -109,7 +109,7 @@ class Productos
         }
 	}
 	
-	public static function unpdateProducto($id,$descripcion,$enable){
+	public static function updateProducto($id,$descripcion,$enable){
 		$consulta="UPDATE producto SET descripcion=?, enable=? WHERE id=?)";
         try {
 			$comando = Database::getInstance()->getDb()->prepare($consulta);
