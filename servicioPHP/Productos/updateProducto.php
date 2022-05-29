@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$descripcion = $_POST['descripcion'];
 		$enable = $_POST['enable'];
         
-        $retorno = Productos::unpdateProducto($id,$descripcion,$enable);
+        $retorno = Productos::updateProducto($id,$descripcion,$enable);
         
         if ($retorno) {
             
