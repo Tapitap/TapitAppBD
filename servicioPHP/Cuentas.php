@@ -34,10 +34,12 @@ class Cuentas
             $id = $conn->lastInsertId();
 			$comando2 =$conn->prepare($sqlget);
 			$fecha = $comando2->execute(array($id));
-			$cuenta = array(
-                    'id' => $id,
-                    'fecha' => $fecha['fecha']
-                )
+			$cuenta['id'] = $id;
+			$cuenta['fecha'] = $fecha['fecha'];
+			//$cuenta = array(
+            //        'id' => $id,
+            //        'fecha' => $fecha['fecha']
+            //    );
 			return $cuenta;
         }catch (PDOException $e) {
             return -1;
