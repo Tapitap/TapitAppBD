@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
         if($retorno){
 			
-			$retorno = Users::insertAuthority($username);
+			$retorno = Users::insertAuthority($username,"mesa");
 			
 			if($retorno){
 				
