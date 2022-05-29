@@ -16,43 +16,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$retorno = Users::exitUsername($username);
 		
 		if($retorno['num']>0){
-			print json_encode(array('mensaje'=>'existe username'));
-		}else{
-			print json_encode(array('mensaje'=>'no existe username'));
-		}
-		/*
-		$retorno = Users::insertUser($username,$password);
+			print json_encode(
+				array('estado' => '2', 'mensaje' => 'El nombre de usuario ' + $username + ' ya existe')
+			);
+		}/*else{
+			$retorno = Users::insertUser($username,$password);
 		
-        if($retorno){
-			
-			$retorno = Users::insertAuthority($username);
-			
 			if($retorno){
 				
-				$retorno = Users::insertMesa($username,$id_manager,$numero);
+				$retorno = Users::insertAuthority($username,"manager");
 				
-				if ($retorno) {
-            
-					$json["estado"] = "1";
-					$json["id"] = $retorno;
+				if($retorno){
 					
-					print json_encode($json);
-					//print $json;
+					$retorno = Users::insertManager($username,$name,$tipo,$mesapass);
 					
+					if ($retorno) {
+				
+						$json["estado"] = "1";
+						
+						print json_encode($json);
+						//print $json;
+						
+					}else{
+						print json_encode(
+							array('estado' => '-1', 'mensaje' => 'Id mesa no devuelta')
+						);
+					}
 				}else{
 					print json_encode(
-						array('estado' => '-1', 'mensaje' => 'Id mesa no devuelta')
+						array('estado' => '-1', 'mensaje' => 'Authority no insertado')
 					);
 				}
 			}else{
 				print json_encode(
-					array('estado' => '-1', 'mensaje' => 'Authority no insertado')
+					array('estado' => '-1', 'mensaje' => 'User no insertado')
 				);
 			}
-		}else{
-			print json_encode(
-				array('estado' => '-1', 'mensaje' => 'User no insertado')
-			);
 		}*/
     }else{
         print json_encode(

@@ -151,6 +151,22 @@ class Users
         }
 	}
 	
+	public static function insertManager($username,$name,$tipo,$mesapass){
+		$sqlMesa = "INSERT INTO manager(username,name,tipo,mesapass) VALUES(?,?,?,?)";
+		try {
+			$conn = Database::getInstance()->getDb();
+			$comando = $conn->prepare($sqlMesa);
+			return $comando->execute(array(
+				$username,
+				$name,
+				$tipo,
+				$mesapass
+			));
+		}catch (PDOException $e) {
+            return '-1';
+        }
+	}
+	
 	public static function insertMesa($username,$id_manager,$numero){
 		$sqlMesa = "INSERT INTO mesa(id_manager,numero,username) VALUES(?,?,?)";
 		try {
@@ -182,13 +198,14 @@ class Users
         }
 	}
 	
-	public static function insertAuthority($username){
-		$sqlAthority = "INSERT INTO authorities(username,authority) VALUES(?,'mesa')";
+	public static function insertAuthority($username,$authority){
+		$sqlAthority = "INSERT INTO authorities(username,authority) VALUES(?,?)";
 		try {
 			$conn = Database::getInstance()->getDb();
 			$comando = $conn->prepare($sqlAthority);
             return $comando->execute(array(
-				$username
+				$username,
+				$authority
 			));
 		}catch (PDOException $e) {
             return '-1';
