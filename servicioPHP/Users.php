@@ -24,6 +24,17 @@ class Users
         }
     }
 	
+	public static function exitUsername($username){
+		$consulta="SELECT COUNT(*) as 'num' FROM users u WHERE u.username=?";
+        try {
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            $comando->execute(array($username));
+            return $comando->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getUserSession($username){
 		$consulta="SELECT u.log FROM users u WHERE u.username=?";
         try {

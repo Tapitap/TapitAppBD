@@ -13,12 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$tipo = $_POST['tipo'];
 		$mesapass = $_POST['mesapass'];
         
-		$retorno = Users::getManagerByUsername(username);
+		$retorno = Users::exitUsername($username);
 		
-		if($retorno['id']==null){
-			print json_encode(array('mensaje'=>'no id'));
+		if($retorno['num']>0){
+			print json_encode(array('mensaje'=>'existe username'));
 		}else{
-			print json_encode(array('mensaje'=>$retorno['id']));
+			print json_encode(array('mensaje'=>'no existe username'));
 		}
 		/*
 		$retorno = Users::insertUser($username,$password);
