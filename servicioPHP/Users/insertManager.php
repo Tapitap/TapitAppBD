@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		if($retorno['num']>0){
 			print json_encode(
-				array('estado' => '2', 'mensaje' => 'El nombre de usuario ' + $username + ' ya existe')
+				array('estado' => '2', 'mensaje' => 'El nombre de usuario ' . $username . ' ya existe')
 			);
 		}/*else{
 			$retorno = Users::insertUser($username,$password);
