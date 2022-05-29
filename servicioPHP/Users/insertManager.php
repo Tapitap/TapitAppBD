@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		if($retorno['num']>0){
 			print json_encode(
-				array('estado' => '2', 'mensaje' => 'El nombre de usuario ' . $username . ' ya existe')
+				array('estado' => '2', 'mensaje' => 'El nombre de usuario "' . $username . '" ya existe')
 			);
-		}/*else{
+		}else{
 			$retorno = Users::insertUser($username,$password);
 		
 			if($retorno){
 				
 				$retorno = Users::insertAuthority($username,"manager");
-				
+				/*
 				if($retorno){
 					
 					$retorno = Users::insertManager($username,$name,$tipo,$mesapass);
@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					print json_encode(
 						array('estado' => '-1', 'mensaje' => 'Authority no insertado')
 					);
-				}
+				}*/
 			}else{
 				print json_encode(
 					array('estado' => '-1', 'mensaje' => 'User no insertado')
 				);
 			}
-		}*/
+		}
     }else{
         print json_encode(
             array('estado' => '-1', 'mensaje' => 'Debe enviar parametros')
