@@ -156,12 +156,14 @@ class Users
 		try {
 			$conn = Database::getInstance()->getDb();
 			$comando = $conn->prepare($sqlMesa);
-			return $comando->execute(array(
+			$comando->execute(array(
 				$username,
 				$name,
 				$tipo,
 				$mesapass
 			));
+			$id = $conn->lastInsertId();
+			return $id;
 		}catch (PDOException $e) {
             return '-1';
         }
