@@ -64,6 +64,18 @@ class Comandas
         }
 	}
 	
+	public static function deleteComanda($id){
+		$consulta="DELETE FROM comanda WHERE id=?";
+        try {
+			
+			$comando = Database::getInstance()->getDb()->prepare($consulta);
+            return $comando->execute(array($id));
+			
+        }catch (PDOException $e) {
+            return -1;
+        }
+	}
+	
 	public static function getLineasServidas($id_mesa){
 		$consulta = "SELECT l.id, p.nombre, l.cuantia, l.cantidad FROM linea l INNER JOIN producto p ON p.id = l.id_producto LEFT JOIN comanda c ON c.id = l.id_comanda WHERE c.id_mesa=? AND c.servida = 1";
 		try {
