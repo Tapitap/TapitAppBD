@@ -20,7 +20,7 @@ if ($retorno) {
 	// Enviar respuesta de error general
 	print json_encode(
 		array(
-			'estado' => '-1',
+			'estado' => '2',
 			'mensaje' => 'No se obtuvo registro'
 		)
 	);
