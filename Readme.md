@@ -9,7 +9,7 @@ _Se ha utilizado un host FTP para albergar los ficheros PHP y la base de datos M
 ## Construido con 🛠️
 
 * [Notepad++](https://notepad-plus-plus.org/downloads/) - El editor de archivos para crear y modificar PHP
-* [Postman](https://www.postman.com/downloads/) - Herramineta para crear peticiones Http
+* [Postman](https://www.postman.com/downloads/) - Herramienta para crear peticiones Http
 
 ## Autores ✒️
 
